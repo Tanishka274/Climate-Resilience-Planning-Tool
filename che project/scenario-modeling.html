@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario Modeling</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0;">
+
+    <header style="background-color: #264653; color: white; padding: 2em; text-align: center;">
+        <h1>Scenario Modeling</h1>
+        <p>Explore climate change scenarios and understand their impacts on communities, infrastructure, and ecosystems.</p>
+    </header>
+
+    <main style="padding: 2em;">
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">What is Scenario Modeling?</h2>
+            <p>Scenario modeling allows us to predict the potential impacts of various climate change pathways. By examining different warming scenarios (e.g., 1.5°C, 2°C, or higher), this tool helps us anticipate and prepare for possible outcomes, from extreme weather events to gradual environmental shifts.</p>
+            
+            <h3 style="color: #2a9d8f;">Why Scenario Modeling is Important</h3>
+            <p>Understanding potential futures allows decision-makers to prioritize adaptation strategies effectively. Scenario modeling empowers planners, businesses, and communities to be proactive, not reactive, to climate risks.</p>
+        </section>
+
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">Interactive Climate Scenario Tool</h2>
+            <p>Select a warming scenario and specific climate impact factors (e.g., sea level rise, extreme weather events) to view projected impacts on key areas like agriculture, water resources, and public health.</p>
+
+            <div style="border: 1px solid #ddd; padding: 1em; background-color: #ffffff; border-radius: 8px; max-width: 500px; margin: auto;">
+                <label for="warmingLevel" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Select Warming Scenario:</label>
+                <select id="warmingLevel" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+                    <option value="1.5">1.5°C Warming</option>
+                    <option value="2">2°C Warming</option>
+                    <option value="3">3°C Warming</option>
+                    <option value="4">4°C Warming</option>
+                </select>
+
+                <label for="impactFactor" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Select Impact Factor:</label>
+                <select id="impactFactor" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+                    <option value="seaLevel">Sea Level Rise</option>
+                    <option value="heatwaves">Heatwaves</option>
+                    <option value="agriculture">Agriculture Impact</option>
+                    <option value="waterScarcity">Water Scarcity</option>
+                </select>
+
+                <button onclick="showScenarioDetails()" style="background-color: #2a9d8f; color: white; padding: 0.5em; border: none; border-radius: 4px; cursor: pointer; width: 100%;">View Impact</button>
+
+                <div id="scenarioDetails" style="margin-top: 1em; padding: 1em; border-top: 1px solid #ddd;">
+                    <p>Select a warming scenario and impact factor, then click "View Impact" to see the projected effects.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2em;">
+            <h3 style="color: #2a9d8f;">Sample Impacts of Warming Scenarios</h3>
+            <p>As global temperatures rise, various sectors experience specific impacts. For instance:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>1.5°C Warming:</strong> Minor sea level rise, mild increase in heatwaves, manageable strain on water resources.</li>
+                <li><strong>2°C Warming:</strong> Significant sea level rise, more frequent and intense heatwaves, higher water scarcity risks.</li>
+                <li><strong>3°C Warming:</strong> Major coastal flooding, severe heat events, critical stress on agriculture and water systems.</li>
+                <li><strong>4°C Warming:</strong> Extensive infrastructure loss, intolerable heat levels, extreme food and water shortages.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="background-color: #264653; color: white; padding: 1em; text-align: center;">
+        <p>&copy; 2024 Climate Resilience Planning Tool</p>
+    </footer>
+
+    <script>
+        function showScenarioDetails() {
+            const warmingLevel = document.getElementById("warmingLevel").value;
+            const impactFactor = document.getElementById("impactFactor").value;
+
+            const scenarioImpacts = {
+                "1.5": {
+                    seaLevel: "Sea levels are expected to rise by about 0.3 meters, leading to mild coastal flooding in low-lying areas.",
+                    heatwaves: "Heatwaves are projected to increase in frequency, with manageable public health impacts.",
+                    agriculture: "Crop yields may decrease by 5-10%, particularly for wheat and rice.",
+                    waterScarcity: "Moderate stress on water resources, with potential shortages in arid regions."
+                },
+                "2": {
+                    seaLevel: "Sea levels could rise by 0.5 meters, causing significant coastal flooding and erosion.",
+                    heatwaves: "More frequent, intense heatwaves will likely increase health risks, especially in urban areas.",
+                    agriculture: "Significant crop loss (10-20%), with particular impact on staple crops.",
+                    waterScarcity: "Widespread water scarcity, especially in regions already experiencing drought."
+                },
+                "3": {
+                    seaLevel: "Sea level rise of 0.8 meters, leading to severe flooding in coastal and island areas.",
+                    heatwaves: "Heat events become increasingly deadly, particularly in high-density regions.",
+                    agriculture: "Up to 30% decline in crop yields, leading to increased food insecurity.",
+                    waterScarcity: "Critical water shortages affecting agriculture and urban water supplies."
+                },
+                "4": {
+                    seaLevel: "Sea levels rise by more than 1 meter, displacing millions from coastal zones.",
+                    heatwaves: "Extreme, unlivable heat in many regions, with major health impacts.",
+                    agriculture: "Crop yields decline by 40-50%, leading to global food crises.",
+                    waterScarcity: "Severe, widespread water shortages impacting millions of people."
+                }
+            };
+
+            const details = scenarioImpacts[warmingLevel][impactFactor];
+            document.getElementById("scenarioDetails").innerHTML = `<p>${details}</p>`;
+        }
+    </script>
+</body>
+</html>
+

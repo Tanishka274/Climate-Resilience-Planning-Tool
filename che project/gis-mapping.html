@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIS Mapping and Visualization</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0;">
+
+    <header style="background-color: #264653; color: white; padding: 2em; text-align: center;">
+        <h1>GIS Mapping and Visualization</h1>
+        <p>Visualizing vulnerabilities and interventions to enhance climate resilience.</p>
+    </header>
+
+    <main style="padding: 2em;">
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">The Importance of GIS in Climate Resilience</h2>
+            <p>Geographic Information Systems (GIS) are powerful tools that allow communities, governments, and organizations to visualize, analyze, and interpret data related to climate impacts. By mapping vulnerabilities and potential interventions, stakeholders can make informed decisions that enhance resilience to climate-related risks.</p>
+            
+            <h3 style="color: #2a9d8f;">Key Benefits of GIS Mapping</h3>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Spatial Analysis:</strong> Identify geographic areas most vulnerable to climate impacts, such as flooding, heatwaves, or sea-level rise.</li>
+                <li><strong>Scenario Planning:</strong> Model different climate scenarios and visualize their potential effects on communities and infrastructure.</li>
+                <li><strong>Data Integration:</strong> Combine various datasets, such as population density, infrastructure, and environmental conditions, for comprehensive analysis.</li>
+                <li><strong>Community Engagement:</strong> Use visual tools to engage stakeholders in discussions about vulnerabilities and adaptation strategies.</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">Interactive GIS Mapping Tool</h2>
+            <p>Use the interactive map below to visualize climate vulnerabilities in your area. You can add markers for potential interventions and download your customized map.</p>
+
+            <div style="border: 1px solid #ddd; padding: 1em; background-color: #ffffff; border-radius: 8px; max-width: 800px; margin: auto;">
+                <div id="map" style="height: 400px; border: 1px solid #ccc; border-radius: 4px;"></div>
+
+                <h3 style="color: #2a9d8f; margin-top: 1em;">Add Intervention Marker</h3>
+                <label for="markerName" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Intervention Name:</label>
+                <input type="text" id="markerName" placeholder="Enter intervention name" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <label for="markerLat" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Latitude:</label>
+                <input type="text" id="markerLat" placeholder="Enter latitude" style="width: 48%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <label for="markerLng" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Longitude:</label>
+                <input type="text" id="markerLng" placeholder="Enter longitude" style="width: 48%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <button onclick="addMarker()" style="background-color: #2a9d8f; color: white; padding: 0.5em; border: none; border-radius: 4px; cursor: pointer; width: 100%;">Add Marker</button>
+
+                <button onclick="downloadMap()" style="background-color: #e76f51; color: white; padding: 0.5em; border: none; border-radius: 4px; cursor: pointer; margin-top: 1em; width: 100%;">Download Map</button>
+            </div>
+        </section>
+
+        <section style="margin-top: 2em;">
+            <h3 style="color: #2a9d8f;">Case Studies of GIS Applications in Climate Resilience</h3>
+            <p>GIS has been instrumental in various case studies focused on enhancing climate resilience. Here are a few examples:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Coastal Flooding in Miami:</strong> GIS was used to assess vulnerable coastal neighborhoods, guiding infrastructure investments and emergency preparedness strategies.</li>
+                <li><strong>Heat Vulnerability Mapping in Los Angeles:</strong> A GIS analysis identified communities at risk of heatwaves, allowing for targeted tree planting and cooling center initiatives.</li>
+                <li><strong>Wildfire Risk Assessment in California:</strong> GIS tools helped visualize wildfire-prone areas, enabling proactive measures like controlled burns and community outreach programs.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="background-color: #264653; color: white; padding: 1em; text-align: center;">
+        <p>&copy; 2024 Climate Resilience Planning Tool</p>
+    </footer>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet" />
+
+    <script>
+        // Mapbox configuration
+        mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'; // Replace with your Mapbox access token
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-98.5795, 39.8283], // Starting position [lng, lat]
+            zoom: 3
+        });
+
+        function addMarker() {
+            const name = document.getElementById("markerName").value;
+            const lat = parseFloat(document.getElementById("markerLat").value);
+            const lng = parseFloat(document.getElementById("markerLng").value);
+
+            if (!name || isNaN(lat) || isNaN(lng)) {
+                alert("Please enter valid values for the marker.");
+                return;
+            }
+
+            const marker = new mapboxgl.Marker()
+                .setLngLat([lng, lat])
+                .setPopup(new mapboxgl.Popup().setHTML(`<h4>${name}</h4>`)) // Add a popup to the marker
+                .addTo(map);
+
+            document.getElementById("markerName").value = '';
+            document.getElementById("markerLat").value = '';
+            document.getElementById("markerLng").value = '';
+        }
+
+        function downloadMap() {
+            alert("Downloading map functionality will be implemented in future versions.");
+        }
+    </script>
+</body>
+</html>

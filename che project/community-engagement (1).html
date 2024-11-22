@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Engagement</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0;">
+
+    <header style="background-color: #264653; color: white; padding: 2em; text-align: center;">
+        <h1>Community Engagement</h1>
+        <p>Fostering collaboration and active participation to strengthen climate resilience.</p>
+    </header>
+
+    <main style="padding: 2em;">
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">Why Community Engagement Matters</h2>
+            <p>Community engagement is essential for effective climate resilience planning. It helps ensure that the voices of all stakeholders are heard, fosters local ownership of climate solutions, and enhances the effectiveness of adaptation strategies. Involving communities can lead to better-informed decision-making, increased public support, and more sustainable outcomes.</p>
+            
+            <h3 style="color: #2a9d8f;">Key Elements of Successful Engagement</h3>
+            <p>Effective community engagement strategies are characterized by:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Inclusivity:</strong> Ensuring that diverse voices and perspectives are represented.</li>
+                <li><strong>Transparency:</strong> Keeping the community informed and involved in the decision-making process.</li>
+                <li><strong>Collaboration:</strong> Encouraging partnerships between communities, governments, and organizations.</li>
+                <li><strong>Education:</strong> Providing information and resources to help the community understand climate risks and solutions.</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">Interactive Community Engagement Tool</h2>
+            <p>Use the tool below to explore different engagement methods based on your community's needs and goals.</p>
+
+            <div style="border: 1px solid #ddd; padding: 1em; background-color: #ffffff; border-radius: 8px; max-width: 500px; margin: auto;">
+                <label for="engagementType" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Select Engagement Method:</label>
+                <select id="engagementType" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+                    <option value="workshops">Workshops</option>
+                    <option value="surveys">Surveys</option>
+                    <option value="communityMeetings">Community Meetings</option>
+                    <option value="socialMedia">Social Media Campaigns</option>
+                </select>
+
+                <label for="targetAudience" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Select Target Audience:</label>
+                <select id="targetAudience" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+                    <option value="youth">Youth</option>
+                    <option value="seniors">Seniors</option>
+                    <option value="businesses">Local Businesses</option>
+                    <option value="generalPublic">General Public</option>
+                </select>
+
+                <button onclick="showEngagementDetails()" style="background-color: #2a9d8f; color: white; padding: 0.5em; border: none; border-radius: 4px; cursor: pointer; width: 100%;">View Engagement Strategies</button>
+
+                <div id="engagementDetails" style="margin-top: 1em; padding: 1em; border-top: 1px solid #ddd;">
+                    <p>Select an engagement method and target audience, then click "View Engagement Strategies" to see recommended approaches.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2em;">
+            <h3 style="color: #2a9d8f;">Examples of Effective Engagement Strategies</h3>
+            <p>Here are some examples of effective community engagement strategies tailored to different groups and needs:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Workshops:</strong> Interactive sessions that educate participants on climate issues, gather feedback, and encourage collaborative problem-solving.</li>
+                <li><strong>Surveys:</strong> Collecting data on community concerns, preferences, and awareness levels regarding climate risks and resilience measures.</li>
+                <li><strong>Community Meetings:</strong> Hosting open forums where residents can discuss local climate challenges and share ideas for adaptation strategies.</li>
+                <li><strong>Social Media Campaigns:</strong> Using digital platforms to spread awareness, share resources, and engage younger audiences in climate action.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="background-color: #264653; color: white; padding: 1em; text-align: center;">
+        <p>&copy; 2024 Climate Resilience Planning Tool</p>
+    </footer>
+
+    <script>
+        function showEngagementDetails() {
+            const engagementType = document.getElementById("engagementType").value;
+            const targetAudience = document.getElementById("targetAudience").value;
+
+            const engagementStrategies = {
+                workshops: {
+                    youth: "Organize hands-on workshops focusing on climate science and local impacts, empowering youth to lead projects in their communities.",
+                    seniors: "Conduct informative workshops addressing climate vulnerabilities specific to seniors, providing resources for preparedness.",
+                    businesses: "Facilitate business workshops on sustainability practices, resilience planning, and opportunities for green investments.",
+                    generalPublic: "Host workshops that cover climate adaptation strategies and encourage community involvement in resilience planning."
+                },
+                surveys: {
+                    youth: "Use engaging online surveys to gather input from youth on climate concerns and desired actions in their communities.",
+                    seniors: "Distribute paper surveys in community centers to understand the specific climate concerns of older adults.",
+                    businesses: "Conduct surveys with local businesses to identify their climate-related risks and support needs.",
+                    generalPublic: "Implement community-wide surveys to assess public awareness and gather opinions on climate strategies."
+                },
+                communityMeetings: {
+                    youth: "Hold informal meetups at schools or community centers to discuss climate change and involve youth in action planning.",
+                    seniors: "Schedule meetings in senior centers to gather input on climate impacts and engage them in adaptation efforts.",
+                    businesses: "Organize networking meetings for local businesses to share challenges and collaborate on resilience strategies.",
+                    generalPublic: "Host open community meetings where residents can express concerns and share ideas for climate action."
+                },
+                socialMedia: {
+                    youth: "Launch a dedicated social media campaign targeting youth, encouraging them to share their climate action stories.",
+                    seniors: "Utilize platforms popular among seniors to share climate resources and engage them in local initiatives.",
+                    businesses: "Create LinkedIn groups for businesses to exchange ideas and promote sustainable practices.",
+                    generalPublic: "Implement a broad social media strategy to raise awareness and provide information on climate resilience."
+                }
+            };
+
+            const details = engagementStrategies[engagementType][targetAudience];
+            document.getElementById("engagementDetails").innerHTML = `<p>${details}</p>`;
+        }
+    </script>
+</body>
+</html>

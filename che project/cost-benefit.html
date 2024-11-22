@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost-Benefit Analysis</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0;">
+
+    <header style="background-color: #264653; color: white; padding: 2em; text-align: center;">
+        <h1>Cost-Benefit Analysis</h1>
+        <p>Evaluating the financial viability of adaptation measures to enhance resilience.</p>
+    </header>
+
+    <main style="padding: 2em;">
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">What is Cost-Benefit Analysis?</h2>
+            <p>Cost-benefit analysis (CBA) is a systematic approach used to evaluate the financial implications of different climate adaptation strategies. This process helps decision-makers compare the costs of implementing adaptation measures against the benefits they generate, allowing for informed choices that maximize community resilience while minimizing financial risk.</p>
+            
+            <h3 style="color: #2a9d8f;">Key Components of CBA</h3>
+            <p>Effective cost-benefit analysis involves the following components:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Identifying Costs:</strong> Assessing all relevant costs associated with implementing adaptation strategies, including direct, indirect, and opportunity costs.</li>
+                <li><strong>Estimating Benefits:</strong> Quantifying the expected benefits, such as reduced damages, improved public health, and enhanced ecosystem services.</li>
+                <li><strong>Time Frame:</strong> Determining the appropriate time frame for the analysis, as both costs and benefits can vary over time.</li>
+                <li><strong>Discount Rate:</strong> Applying a discount rate to account for the time value of money, ensuring a fair comparison between costs and benefits.</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">Interactive Cost-Benefit Analysis Tool</h2>
+            <p>Use the tool below to input your adaptation strategy details and calculate the estimated costs and benefits.</p>
+
+            <div style="border: 1px solid #ddd; padding: 1em; background-color: #ffffff; border-radius: 8px; max-width: 500px; margin: auto;">
+                <label for="strategyName" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Adaptation Strategy Name:</label>
+                <input type="text" id="strategyName" placeholder="Enter strategy name" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <label for="costEstimate" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Estimated Costs ($):</label>
+                <input type="number" id="costEstimate" placeholder="Enter estimated costs" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <label for="benefitEstimate" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Estimated Benefits ($):</label>
+                <input type="number" id="benefitEstimate" placeholder="Enter estimated benefits" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <button onclick="calculateCBA()" style="background-color: #2a9d8f; color: white; padding: 0.5em; border: none; border-radius: 4px; cursor: pointer; width: 100%;">Calculate CBA</button>
+
+                <div id="cbaResults" style="margin-top: 1em; padding: 1em; border-top: 1px solid #ddd;">
+                    <p>Enter the details above and click "Calculate CBA" to see the results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2em;">
+            <h3 style="color: #2a9d8f;">Examples of Cost-Benefit Analysis in Action</h3>
+            <p>Here are some examples of how cost-benefit analysis has been effectively utilized to inform adaptation strategies:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Flood Mitigation Measures:</strong> A city conducted a CBA on the implementation of a flood wall versus natural wetland restoration, weighing construction costs against long-term flood damage reduction.</li>
+                <li><strong>Urban Green Spaces:</strong> An analysis of creating parks in urban areas compared the initial investment with benefits such as improved air quality, increased property values, and reduced heat island effects.</li>
+                <li><strong>Coastal Resilience Projects:</strong> Coastal communities assessed the costs of reinforcing shorelines against the benefits of avoided damages from storm surges and habitat preservation.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="background-color: #264653; color: white; padding: 1em; text-align: center;">
+        <p>&copy; 2024 Climate Resilience Planning Tool</p>
+    </footer>
+
+    <script>
+        function calculateCBA() {
+            const strategyName = document.getElementById("strategyName").value;
+            const costEstimate = parseFloat(document.getElementById("costEstimate").value);
+            const benefitEstimate = parseFloat(document.getElementById("benefitEstimate").value);
+
+            if (!strategyName || isNaN(costEstimate) || isNaN(benefitEstimate)) {
+                document.getElementById("cbaResults").innerHTML = "<p style='color: red;'>Please enter valid values for all fields.</p>";
+                return;
+            }
+
+            const netBenefit = benefitEstimate - costEstimate;
+            const resultMessage = netBenefit >= 0
+                ? `<p>The net benefit of the adaptation strategy "<strong>${strategyName}</strong>" is $${netBenefit.toFixed(2)}. This suggests that the strategy is financially viable.</p>`
+                : `<p>The net cost of the adaptation strategy "<strong>${strategyName}</strong>" is $${Math.abs(netBenefit).toFixed(2)}. Consider alternative strategies.</p>`;
+
+            document.getElementById("cbaResults").innerHTML = resultMessage;
+        }
+    </script>
+</body>
+</html>
+

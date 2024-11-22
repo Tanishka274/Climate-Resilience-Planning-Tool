@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring and Reporting</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0;">
+
+    <header style="background-color: #264653; color: white; padding: 2em; text-align: center;">
+        <h1>Monitoring and Reporting</h1>
+        <p>Tracking progress and adapting strategies for effective climate resilience.</p>
+    </header>
+
+    <main style="padding: 2em;">
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">Importance of Monitoring and Reporting</h2>
+            <p>Monitoring and reporting are critical components of climate resilience planning. They enable stakeholders to track the effectiveness of adaptation strategies, identify areas for improvement, and ensure that resources are allocated efficiently. Continuous monitoring provides valuable insights that inform decision-making and help adjust strategies as conditions change.</p>
+            
+            <h3 style="color: #2a9d8f;">Key Elements of Effective Monitoring</h3>
+            <p>Effective monitoring and reporting include:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Establishing Clear Metrics:</strong> Defining specific, measurable indicators to assess the success of adaptation strategies.</li>
+                <li><strong>Data Collection:</strong> Regularly gathering quantitative and qualitative data to evaluate progress.</li>
+                <li><strong>Reporting Mechanisms:</strong> Developing transparent processes for sharing monitoring results with stakeholders and the public.</li>
+                <li><strong>Feedback Loops:</strong> Creating systems for incorporating monitoring results into future planning and decision-making.</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom: 2em;">
+            <h2 style="color: #2a9d8f;">Interactive Monitoring Tool</h2>
+            <p>Use the tool below to track and report your climate resilience efforts.</p>
+
+            <div style="border: 1px solid #ddd; padding: 1em; background-color: #ffffff; border-radius: 8px; max-width: 500px; margin: auto;">
+                <label for="strategyName" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Adaptation Strategy:</label>
+                <input type="text" id="strategyName" placeholder="Enter strategy name" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <label for="progressPercentage" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Progress (%):</label>
+                <input type="number" id="progressPercentage" min="0" max="100" placeholder="Enter progress percentage" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;">
+
+                <label for="reportComments" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Comments/Updates:</label>
+                <textarea id="reportComments" rows="4" placeholder="Enter comments or updates" style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px;"></textarea>
+
+                <button onclick="submitReport()" style="background-color: #2a9d8f; color: white; padding: 0.5em; border: none; border-radius: 4px; cursor: pointer; width: 100%;">Submit Report</button>
+
+                <div id="reportResults" style="margin-top: 1em; padding: 1em; border-top: 1px solid #ddd;">
+                    <p>Submit your monitoring report above.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2em;">
+            <h3 style="color: #2a9d8f;">Examples of Effective Monitoring and Reporting</h3>
+            <p>Monitoring and reporting can take various forms. Here are some examples:</p>
+            <ul style="padding-left: 1.5em; line-height: 1.8;">
+                <li><strong>Annual Reports:</strong> Communities publish yearly reports detailing the status of climate resilience initiatives, including successes and challenges faced.</li>
+                <li><strong>Data Dashboards:</strong> Interactive online platforms that display real-time data on climate resilience metrics and key performance indicators.</li>
+                <li><strong>Stakeholder Meetings:</strong> Regular meetings with community members and stakeholders to discuss progress, share insights, and gather feedback on ongoing strategies.</li>
+                <li><strong>Public Awareness Campaigns:</strong> Initiatives aimed at educating the public about the importance of monitoring climate resilience and sharing findings with the broader community.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="background-color: #264653; color: white; padding: 1em; text-align: center;">
+        <p>&copy; 2024 Climate Resilience Planning Tool</p>
+    </footer>
+
+    <script>
+        function submitReport() {
+            const strategyName = document.getElementById("strategyName").value;
+            const progressPercentage = parseInt(document.getElementById("progressPercentage").value);
+            const reportComments = document.getElementById("reportComments").value;
+
+            if (!strategyName || isNaN(progressPercentage) || progressPercentage < 0 || progressPercentage > 100) {
+                document.getElementById("reportResults").innerHTML = "<p style='color: red;'>Please enter valid values for all fields.</p>";
+                return;
+            }
+
+            const reportMessage = `
+                <p>Monitoring Report Submitted!</p>
+                <p><strong>Adaptation Strategy:</strong> ${strategyName}</p>
+                <p><strong>Progress:</strong> ${progressPercentage}%</p>
+                <p><strong>Comments:</strong> ${reportComments}</p>
+            `;
+
+            document.getElementById("reportResults").innerHTML = reportMessage;
+        }
+    </script>
+</body>
+</html>
